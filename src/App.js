@@ -1,4 +1,8 @@
 import React from 'react';
+import {TodoBanner} from './TodoBanner';
+import {TodoCretor} from './TodoCreator';
+import {TodoRow} from './TodoRow';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -7,19 +11,17 @@ class App extends React.Component {
       todoItems: [{ action: "Buy Flowers", done: false },
       { action: "Get Shoes", done: false },
       { action: "Collect Tickets", done: true },
-      { action: "Call Joe", done: false }],
-      newItemText: ""
+      { action: "Call Joe", done: false }]
     }
   }
 
     updateNewTextValue = (event) => {
       this.setState({ newItemText: event.target.value });
     }
-    createNewTodo = () => {
-      if (!this.state.todoItems.find(item => item.action === this.state.newItemText)) {
+    createNewTodo = (task) => {
+      if (!this.state.todoItems.find(item => item.action === task)) {
         this.setState({
-          todoItems: [...this.state.todoItems,{ action: this.state.newItemText, done: false }],
-          newItemText: ""
+          todoItems: [...this.state.todoItems, {action: task, done: false}]
         });
       }
     }
