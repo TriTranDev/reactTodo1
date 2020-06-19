@@ -15,9 +15,12 @@ export class TodoCreator extends Component {
     }
 
     render = () => {
-        <div className="my-1">
+        return(
+            <div className="my-1">
             <input className="form-control" value={this.state.newItemText} onChange={this.updateNewTextValue}/>
             <button className="btn btn-primary mt-1" onClick={this.createNewTodo}>Add</button>
         </div>
+        );
+        
     }
 }
